@@ -1,0 +1,14 @@
+﻿{
+  "dataset": "HPO disease-phenotype annotations",
+  "filename": "phenotype.hpoa",
+  "release": "2026-09-02",
+  "hpo_ontology_release": "v2026-09-01",
+  "source_url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa",
+  "retrieval_date": "2026-10-18",
+  "sha256": "E89AA39C8F97BF5A52C5D160F9250A603681D630ADE8EC2679D84AC5AECE1F72",
+  "format": "TSV",
+  "header_columns": 12,
+  "non_comment_rows_including_header": 286652,
+  "annotation_rows": 286651,
+  "notes": "Downloaded locally for research use. Verify the checksum before parsing. Keep the raw annotation file out of Git."
+}
