@@ -1,0 +1,10 @@
+
+{
+  "ontology": "Human Phenotype Ontology",
+  "release": "v2026-09-01",
+  "filename": "hp-base.obo",
+  "source_url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp-base.obo",
+  "sha256": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418",
+  "retrieval_date": "2026-10-18",
+  "notes": "Verify the checksum before parsing. Keep the ontology file local and do not commit it to Git."
+}
