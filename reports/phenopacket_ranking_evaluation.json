@@ -1,0 +1,90 @@
+{
+  "report_schema_version": "1.0",
+  "created_at_utc": "2026-10-19T12:30:20.411491+00:00",
+  "research_only": true,
+  "clinical_validation": false,
+  "source": {
+    "archive_filename": "all_phenopackets-0.1.27.zip",
+    "archive_sha256": "d0c70005bb09b87035087516252b6b539fbc0415be7c664b73c9cde7eedf205a",
+    "ontology_filename": "hp-base.obo",
+    "ontology_sha256": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418",
+    "annotations_filename": "phenotype.hpoa",
+    "annotations_sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+  },
+  "methodology": {
+    "split": "deterministic publication-grouped holdout",
+    "test_fraction_requested": 0.2,
+    "seed": "rdai-v1",
+    "candidate_disease_count": 12880,
+    "ranker_inputs": [
+      "positive_hpo_ids"
+    ],
+    "ground_truth_used_only_for_evaluation": true,
+    "excluded_phenotypes_used_for_scoring": false,
+    "semantic_method_included": false,
+    "tie_break": "disease ID ascending after score ordering",
+    "metrics": [
+      "case_count",
+      "recall_at_1",
+      "recall_at_5",
+      "recall_at_10",
+      "recall_at_20",
+      "mean_reciprocal_rank",
+      "median_rank",
+      "unranked_count"
+    ],
+    "full_cohort_evaluation_requested": false
+  },
+  "cohort": {
+    "imported_cases": 10377,
+    "importer_eligible_cases": 10374,
+    "rankable_cases": 10345,
+    "excluded_from_ranking_metrics": 32,
+    "exclusion_counts_nonexclusive_stage_reasons": {
+      "importer_ineligible": 3,
+      "reference_disease_not_in_index": 29
+    },
+    "publication_split": {
+      "development_side": {
+        "cases": 8834,
+        "publication_groups": 1383
+      },
+      "heldout_test": {
+        "cases": 1511,
+        "publication_groups": 346
+      }
+    },
+    "import_integrity": {
+      "unmatched_summary_rows": 0,
+      "unmatched_json_files": 0,
+      "ambiguous_matches": 0,
+      "duplicate_summary_rows": 0,
+      "diagnosis_mismatches": 0,
+      "malformed_hpo_ids": 0,
+      "unknown_hpo_ids": 0
+    }
+  },
+  "primary_heldout_metrics": {
+    "case_count": 1511,
+    "baseline": {
+      "case_count": 1511,
+      "recall_at_1": 0.7180675049636003,
+      "recall_at_5": 0.8299139642620781,
+      "recall_at_10": 0.8544010589013898,
+      "recall_at_20": 0.8808735936465917,
+      "mean_reciprocal_rank": 0.7670772011419564,
+      "median_rank": 1,
+      "unranked_count": 0
+    }
+  },
+  "descriptive_all_rankable_metrics": null,
+  "limitations": [
+    "This is retrospective benchmark evaluation, not prospective or clinical validation.",
+    "Publication grouping reduces within-publication leakage but does not prove patient-level independence or eliminate all phenotype overlap.",
+    "The ranker is fixed; the development-side partition is not used to train or tune a model.",
+    "The disease index is derived from external HPO annotations; diseases absent from that index cannot be ranked and are excluded from ranking metrics.",
+    "Phenotypes whose excluded field uses the schema default may not be independently confirmed positives.",
+    "The semantic method is experimental and must be interpreted alongside the baseline.",
+    "Full-cohort metrics are descriptive only; held-out publication metrics are the primary result."
+  ]
+}
