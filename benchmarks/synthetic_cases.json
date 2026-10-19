@@ -1,0 +1,24 @@
+
+{
+  "benchmark_id": "synthetic-phenotype-ranking-v1",
+  "benchmark_type": "synthetic_pipeline_validation",
+  "purpose": "Validate the phenotype-ranking and evaluation pipeline using controlled toy cases.",
+  "clinical_performance_claim": false,
+  "cases": [
+    {
+      "case_id": "SYN-001",
+      "patient_hpo_ids": ["HP:0001250", "HP:0001263"],
+      "target_disease_ids": ["SYNTHETIC:DISEASE_001"]
+    },
+    {
+      "case_id": "SYN-002",
+      "patient_hpo_ids": ["HP:0001250", "HP:0001290"],
+      "target_disease_ids": ["SYNTHETIC:DISEASE_002"]
+    },
+    {
+      "case_id": "SYN-003",
+      "patient_hpo_ids": ["HP:0001263", "HP:0001290"],
+      "target_disease_ids": ["SYNTHETIC:DISEASE_003"]
+    }
+  ]
+}
