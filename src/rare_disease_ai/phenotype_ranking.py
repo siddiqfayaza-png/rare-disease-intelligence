@@ -47,7 +47,8 @@ def rank_diseases(
     phenotypes by their annotation-based specificity.
 
     When semantic similarity is enabled, an additional ontology-based score
-    is calculated and reported. It does not change the default sort order.
+    is calculated and used for sorting. This experimental score is not a
+    clinical probability.
 
     Negative annotations are reported separately and do not alter the score.
     All scores are research-ranking signals, not clinical probabilities.
@@ -78,8 +79,12 @@ def rank_diseases(
         hpo_id: set(hpo_graph.get_ancestors(hpo_id)) for hpo_id in unique_patient_hpo_ids
     }
 
-    # Cache disease-term ancestors to avoid repeated graph traversal.
+    # Cache disease-term ancestors for hierarchical baseline matching.
     disease_term_ancestors: dict[str, set[str]] = {}
+
+    # Share semantic caches across all candidate diseases for this case.
+    semantic_ancestor_cache: dict[str, frozenset[str]] = {}
+    semantic_similarity_cache: dict[tuple[str, str], float] = {}
 
     results: list[DiseaseRankingResult] = []
 
@@ -139,6 +144,8 @@ def rank_diseases(
                 profile.positive_hpo_ids,
                 information_content,
                 hpo_graph,
+                ancestor_cache=semantic_ancestor_cache,
+                similarity_cache=semantic_similarity_cache,
             )
 
         results.append(
@@ -154,7 +161,6 @@ def rank_diseases(
             )
         )
 
-    # Preserve the established ranking until semantic-score evaluation.
     if use_semantic_similarity:
         results.sort(
             key=lambda result: (

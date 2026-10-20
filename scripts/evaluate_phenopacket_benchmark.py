@@ -29,6 +29,7 @@ DEFAULT_ARCHIVE = ROOT / "data" / "external" / "all_phenopackets-0.1.27.zip"
 DEFAULT_ONTOLOGY = ROOT / "data" / "raw" / "hp-base.obo"
 DEFAULT_ANNOTATIONS = ROOT / "data" / "external" / "phenotype.hpoa"
 DEFAULT_OUTPUT = ROOT / "reports" / "phenopacket_ranking_evaluation.json"
+DEFAULT_DEVELOPMENT_OUTPUT = ROOT / "reports" / "phenopacket_development_evaluation.json"
 
 
 def parse_args(args: list[str] | None = None) -> argparse.Namespace:
@@ -40,9 +41,17 @@ def parse_args(args: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--test-fraction", type=float, default=0.2)
     parser.add_argument("--seed", default="rdai-v1")
     parser.add_argument(
+        "--development-only",
+        action="store_true",
+        help=(
+            "Evaluate only development publication groups. "
+            "When using the default output path, save to a separate development report."
+        ),
+    )
+    parser.add_argument(
         "--skip-semantic",
         action="store_true",
-        help=("Run only the exact/hierarchical baseline. Semantic scoring may be expensive."),
+        help="Run only the exact/hierarchical baseline.",
     )
     parser.add_argument(
         "--include-overall",
@@ -109,20 +118,29 @@ def main(args: list[str] | None = None) -> None:
         flush=True,
     )
 
+    if opts.development_only:
+        evaluation_cases = train
+        evaluation_label = "Development"
+        evaluation_mode = "development"
+    else:
+        evaluation_cases = test
+        evaluation_label = "Held-out"
+        evaluation_mode = "heldout"
+
     print(
-        "Evaluating held-out publication groups; diagnosis labels are not ranking inputs...",
+        f"Evaluating {evaluation_label.lower()} publication groups; "
+        "diagnosis labels are not ranking inputs...",
         flush=True,
     )
-    heldout_metrics = evaluate_case_set(
-        test,
+    evaluation_metrics = evaluate_case_set(
+        evaluation_cases,
         disease_index,
         graph,
         include_semantic=not opts.skip_semantic,
         progress_every=opts.progress_every,
-        label="Held-out",
+        label=evaluation_label,
     )
 
-    # The ranker is fixed and not trained on the development-side partition.
     # Full-cohort results are optional and descriptive only.
     overall_metrics = None
     if opts.include_overall:
@@ -145,10 +163,11 @@ def main(args: list[str] | None = None) -> None:
         )
 
     report = {
-        "report_schema_version": "1.0",
+        "report_schema_version": "1.1",
         "created_at_utc": datetime.now(UTC).isoformat(),
         "research_only": True,
         "clinical_validation": False,
+        "evaluation_mode": evaluation_mode,
         "source": {
             "archive_filename": opts.archive.name,
             "archive_sha256": _sha256(opts.archive),
@@ -158,7 +177,7 @@ def main(args: list[str] | None = None) -> None:
             "annotations_sha256": _sha256(opts.annotations),
         },
         "methodology": {
-            "split": "deterministic publication-grouped holdout",
+            "split": "deterministic publication-grouped split",
             "test_fraction_requested": opts.test_fraction,
             "seed": opts.seed,
             "candidate_disease_count": len(disease_index),
@@ -178,6 +197,7 @@ def main(args: list[str] | None = None) -> None:
                 "unranked_count",
             ],
             "full_cohort_evaluation_requested": opts.include_overall,
+            "development_only": opts.development_only,
         },
         "cohort": {
             "imported_cases": imported.total_cases,
@@ -189,6 +209,7 @@ def main(args: list[str] | None = None) -> None:
                 "development_side": summarize_split_groups(train),
                 "heldout_test": summarize_split_groups(test),
             },
+            "evaluated_partition": summarize_split_groups(evaluation_cases),
             "import_integrity": {
                 "unmatched_summary_rows": len(imported.unmatched_summary_rows),
                 "unmatched_json_files": len(imported.unmatched_json_files),
@@ -199,33 +220,39 @@ def main(args: list[str] | None = None) -> None:
                 "unknown_hpo_ids": len(imported.unknown_hpo_ids),
             },
         },
-        "primary_heldout_metrics": heldout_metrics,
+        "primary_heldout_metrics": (None if opts.development_only else evaluation_metrics),
+        "primary_development_metrics": (evaluation_metrics if opts.development_only else None),
         "descriptive_all_rankable_metrics": overall_metrics,
         "limitations": [
             "This is retrospective benchmark evaluation, not prospective or clinical validation.",
             "Publication grouping reduces within-publication leakage but does not prove "
             "patient-level independence or eliminate all phenotype overlap.",
-            "The ranker is fixed; the development-side partition is not used to train "
-            "or tune a model.",
+            "The ranker is fixed; this evaluation does not train a model.",
+            "The development partition is intended for experimentation. Repeatedly "
+            "consulting held-out results to choose methods compromises their role as "
+            "an untouched final evaluation.",
             "The disease index is derived from external HPO annotations; diseases absent "
             "from that index cannot be ranked and are excluded from ranking metrics.",
             "Phenotypes whose excluded field uses the schema default may not be "
             "independently confirmed positives.",
             "The semantic method is experimental and must be interpreted alongside the baseline.",
-            "Full-cohort metrics are descriptive only; held-out publication metrics "
-            "are the primary result.",
+            "Full-cohort metrics are descriptive only.",
         ],
     }
 
-    opts.output.parent.mkdir(parents=True, exist_ok=True)
-    opts.output.write_text(
+    output_path = opts.output
+    if opts.development_only and output_path == DEFAULT_OUTPUT:
+        output_path = DEFAULT_DEVELOPMENT_OUTPUT
+
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(
         json.dumps(report, indent=2) + "\n",
         encoding="utf-8",
     )
 
-    print("\nHeld-out metrics:", flush=True)
-    print(json.dumps(heldout_metrics, indent=2), flush=True)
-    print(f"\nReport saved to: {opts.output.resolve()}", flush=True)
+    print(f"\n{evaluation_label} metrics:", flush=True)
+    print(json.dumps(evaluation_metrics, indent=2), flush=True)
+    print(f"\nReport saved to: {output_path.resolve()}", flush=True)
 
 
 def _sha256(path: Path) -> str:

@@ -1,6 +1,6 @@
 {
   "report_schema_version": "1.0",
-  "created_at_utc": "2026-10-19T12:30:20.411491+00:00",
+  "created_at_utc": "2026-10-20T09:56:53.729986+00:00",
   "research_only": true,
   "clinical_validation": false,
   "source": {
@@ -21,7 +21,7 @@
     ],
     "ground_truth_used_only_for_evaluation": true,
     "excluded_phenotypes_used_for_scoring": false,
-    "semantic_method_included": false,
+    "semantic_method_included": true,
     "tie_break": "disease ID ascending after score ordering",
     "metrics": [
       "case_count",
@@ -74,6 +74,16 @@
       "recall_at_20": 0.8808735936465917,
       "mean_reciprocal_rank": 0.7670772011419564,
       "median_rank": 1,
+      "unranked_count": 0
+    },
+    "semantic": {
+      "case_count": 1511,
+      "recall_at_1": 0.17670416942422237,
+      "recall_at_5": 0.3017868960953011,
+      "recall_at_10": 0.36532097948378556,
+      "recall_at_20": 0.44209133024487096,
+      "mean_reciprocal_rank": 0.24090795954618088,
+      "median_rank": 34,
       "unranked_count": 0
     }
   },
