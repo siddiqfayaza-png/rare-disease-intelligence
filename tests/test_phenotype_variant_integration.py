@@ -122,3 +122,66 @@ def test_report_is_marked_research_only():
     assert report["research_only"] is True
     assert "not clinical probabilities" in report["score_policy"]
     assert report["diseases"][0]["matched_variants"] == []
+
+
+def test_preserves_conflicting_classifications_and_summarizes_them():
+    diseases = (make_disease("OMIM:100001", "Disease A", 1.0),)
+    variants = (make_variant("GENE_A"),)
+    evidence = (
+        GeneDiseaseEvidence(
+            disease_id="OMIM:100001",
+            gene_symbol="GENE_A",
+            source="GenCC",
+            evidence_id="SGC-1",
+            classification="Definitive",
+        ),
+        GeneDiseaseEvidence(
+            disease_id="OMIM:100001",
+            gene_symbol="GENE_A",
+            source="GenCC",
+            evidence_id="SGC-2",
+            classification="Disputed Evidence",
+        ),
+        GeneDiseaseEvidence(
+            disease_id="OMIM:100001",
+            gene_symbol="GENE_A",
+            source="GenCC",
+            evidence_id="SGC-3",
+            classification="Refuted Evidence",
+        ),
+        GeneDiseaseEvidence(
+            disease_id="OMIM:100001",
+            gene_symbol="GENE_A",
+            source="GenCC",
+            evidence_id="SGC-4",
+            classification="No Known Disease Relationship",
+        ),
+    )
+
+    result = integrate_ranked_evidence(diseases, variants, evidence)[0]
+
+    # Every assertion must remain independently traceable.
+    assert len(result.matched_variants) == 4
+    assert {match.evidence_id for match in result.matched_variants} == {
+        "SGC-1",
+        "SGC-2",
+        "SGC-3",
+        "SGC-4",
+    }
+    assert {match.evidence_category for match in result.matched_variants} == {
+        "supporting",
+        "disputed",
+        "refuting",
+        "no_known_relationship",
+    }
+
+    # The serialized report must summarize categories without resolving conflicts.
+    report = integration_report_to_dict((result,))
+    assert report["diseases"][0]["evidence_summary"] == {
+        "supporting": 1,
+        "disputed": 1,
+        "refuting": 1,
+        "no_known_relationship": 1,
+        "unspecified": 0,
+        "unrecognized": 0,
+    }

@@ -1,0 +1,15 @@
+{
+  "source": "Gene Curation Coalition (GenCC)",
+  "source_url": "https://thegencc.org/download/action/submissions-export-csv?format=new",
+  "local_file": "data/external/gencc-submissions.csv",
+  "retrieved_date": "2026-10-20",
+  "sha256": "D50BD0B49DC70D8270C01ED864A41BA1878C60C9ABDA8976F9B55CF25C79594A",
+  "format": "GenCC new-format CSV",
+  "license": "CC0 1.0",
+  "notes": [
+    "Record the retrieval date and checksum for this exact local file.",
+    "The export excludes OMIM data.",
+    "Preserve MONDO and original disease identifiers separately.",
+    "Do not treat assertions as independently verified clinical conclusions."
+  ]
+}
