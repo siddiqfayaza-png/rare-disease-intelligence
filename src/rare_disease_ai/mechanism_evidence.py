@@ -30,6 +30,7 @@ class MechanismEvidence:
     reference_ids: tuple[str, ...] = ()
     qualifier: str | None = None
     taxon_id: str | None = None
+    source_record_fields: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         required_fields = {
@@ -40,6 +41,7 @@ class MechanismEvidence:
             "source_release": self.source_release,
             "source_url": self.source_url,
         }
+
         for field_name, value in required_fields.items():
             if not isinstance(value, str) or not value.strip():
                 raise ValueError(f"{field_name} must be a non-empty string")
@@ -53,6 +55,7 @@ class MechanismEvidence:
 
         if not isinstance(self.reference_ids, tuple):
             raise ValueError("reference_ids must be a tuple of strings")
+
         if any(
             not isinstance(reference, str) or not reference.strip()
             for reference in self.reference_ids
@@ -66,8 +69,18 @@ class MechanismEvidence:
             "taxon_id",
         ):
             value = getattr(self, field_name)
+
             if value is not None and (not isinstance(value, str) or not value.strip()):
                 raise ValueError(f"{field_name} must be None or a non-empty string")
+
+        if not isinstance(self.source_record_fields, tuple):
+            raise ValueError("source_record_fields must be a tuple of strings")
+
+        if self.source_record_fields and len(self.source_record_fields) != 17:
+            raise ValueError("source_record_fields must be empty or contain all 17 GAF columns")
+
+        if any(not isinstance(value, str) for value in self.source_record_fields):
+            raise ValueError("source_record_fields must contain only strings")
 
 
 def validate_mechanism_evidence(
@@ -97,6 +110,7 @@ def validate_mechanism_evidence(
 
         if identity in seen:
             issues.append(f"Record {index}: duplicate evidence assertion")
+
         seen.add(identity)
 
     return tuple(issues)

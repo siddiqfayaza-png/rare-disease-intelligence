@@ -1,0 +1,124 @@
+{
+  "build_status": "success",
+  "clinical_validation_status": "not_clinically_validated",
+  "limitations": [
+    "Research prototype; not for clinical decision-making.",
+    "Source assertions and annotations are not independently clinically validated.",
+    "GO annotations preserve source qualifiers, including NOT; retrieval is not a clinical interpretation.",
+    "Duplicate evidence IDs are reported and duplicate records are retained.",
+    "Source checksums verify file identity, not scientific correctness."
+  ],
+  "output": {
+    "counts_by_evidence_type": {
+      "gene_disease_assertion": 30345,
+      "go_mechanism_annotation": 910476,
+      "hpo_disease_phenotype_annotation": 286651
+    },
+    "documents_written": 1227472,
+    "duplicate_evidence_ids": 31,
+    "duplicate_records_retained": true,
+    "path": "data/processed/biomedical_evidence.jsonl",
+    "sha256": "400f5aa65477defe8c3963e4b6057dea1df87963d8e3847c6408e685570e0627"
+  },
+  "research_only": true,
+  "schema_version": "1.0",
+  "sources": {
+    "gencc": {
+      "assertions_emitted": 30345,
+      "path": "data/external/gencc-submissions.csv",
+      "row_error_examples": [],
+      "row_errors": 0,
+      "rows_read": 30345
+    },
+    "go_annotations": {
+      "diagnostics": {
+        "eligible_for_emission": 910476,
+        "rows_read": 910476
+      },
+      "documents_emitted": 910476,
+      "path": "data/external/HUMAN-uniprot-2026-08-05.gaf.gz"
+    },
+    "go_ontology": {
+      "active_labels_loaded": 38092,
+      "path": "data/external/go-basic-2026-08-05.obo"
+    },
+    "hpo": {
+      "path": "data/raw/hp-base.obo",
+      "terms_loaded": 20482
+    },
+    "hpoa": {
+      "hpo_ids_not_in_ontology": 0,
+      "path": "data/external/phenotype.hpoa",
+      "rows_parsed": 286651
+    },
+    "metadata": {
+      "gencc": {
+        "format": "GenCC new-format CSV",
+        "license": "CC0 1.0",
+        "local_file": "data/external/gencc-submissions.csv",
+        "notes": [
+          "Record the retrieval date and checksum for this exact local file.",
+          "The export excludes OMIM data.",
+          "Preserve MONDO and original disease identifiers separately.",
+          "Do not treat assertions as independently verified clinical conclusions."
+        ],
+        "retrieved_date": "2026-10-20",
+        "sha256": "D50BD0B49DC70D8270C01ED864A41BA1878C60C9ABDA8976F9B55CF25C79594A",
+        "source": "Gene Curation Coalition (GenCC)",
+        "source_url": "https://thegencc.org/download/action/submissions-export-csv?format=new"
+      },
+      "go": {
+        "annotation_download_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+        "annotation_file": "data/external/HUMAN-uniprot-2026-08-05.gaf.gz",
+        "annotation_format": "GAF 2.2",
+        "annotation_generated_at": "2026-07-28 19:42",
+        "annotation_go_version_reference": "http://purl.obolibrary.org/obo/go/releases/2026-07-26/extensions/go-plus.ofn",
+        "annotation_records_counted": 910476,
+        "annotation_sha256": "A0AFBA19DFB1F8FA996BC1BDCD61FD0C9BD4CF0D2BF2509D09AC86993C0E70A2",
+        "annotation_source": "UniProt",
+        "notes": [
+          "SHA-256 values were calculated locally after download.",
+          "Annotation count includes non-comment, non-empty GAF rows before filtering.",
+          "Ontology archive date and internal ontology data version are recorded separately.",
+          "No claim is made that the dataset is clinically validated."
+        ],
+        "ontology_active_terms_parsed": 38092,
+        "ontology_archive_date": "2026-08-05",
+        "ontology_data_version": "releases/2026-07-26",
+        "ontology_file": "data/external/go-basic-2026-08-05.obo",
+        "ontology_sha256": "B08D45B268B8C24CCB2513DBBBC7D4DF9F6521C099B413F79EB31E06E0FA3BCC",
+        "source": "Gene Ontology"
+      },
+      "hpo": {
+        "filename": "hp-base.obo",
+        "notes": "Verify the checksum before parsing. Keep the ontology file local and do not commit it to Git.",
+        "ontology": "Human Phenotype Ontology",
+        "release": "v2026-09-01",
+        "retrieval_date": "2026-10-18",
+        "sha256": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418",
+        "source_url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/hp-base.obo"
+      },
+      "hpoa": {
+        "annotation_rows": 286651,
+        "dataset": "HPO disease-phenotype annotations",
+        "filename": "phenotype.hpoa",
+        "format": "TSV",
+        "header_columns": 12,
+        "hpo_ontology_release": "v2026-09-01",
+        "non_comment_rows_including_header": 286652,
+        "notes": "Downloaded locally for research use. Verify the checksum before parsing. Keep the raw annotation file out of Git.",
+        "release": "2026-09-02",
+        "retrieval_date": "2026-10-18",
+        "sha256": "E89AA39C8F97BF5A52C5D160F9250A603681D630ADE8EC2679D84AC5AECE1F72",
+        "source_url": "https://github.com/obophenotype/human-phenotype-ontology/releases/download/v2026-09-01/phenotype.hpoa"
+      }
+    },
+    "verified_sha256": {
+      "gencc_assertions": "d50bd0b49dc70d8270c01ed864a41ba1878c60c9abda8976f9b55cf25c79594a",
+      "go_annotations": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2",
+      "go_ontology": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc",
+      "hpo_ontology": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418",
+      "hpoa_annotations": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+    }
+  }
+}
