@@ -1,0 +1,48 @@
+{
+  "report_date": "2026-10-20",
+  "source": "Gene Curation Coalition (GenCC)",
+  "source_url": "https://thegencc.org/download/action/submissions-export-csv?format=new",
+  "retrieved_date": "2026-10-20",
+  "input_file": "data/external/gencc-submissions.csv",
+  "checksum": {
+    "algorithm": "SHA-256",
+    "actual": "d50bd0b49dc70d8270c01ed864a41ba1878c60c9abda8976f9b55cf25c79594a",
+    "expected": "d50bd0b49dc70d8270c01ed864a41ba1878c60c9abda8976f9b55cf25c79594a",
+    "matches_metadata": true
+  },
+  "import_summary": {
+    "rows_read": 30345,
+    "assertions_imported": 30345,
+    "rows_with_errors": 0,
+    "unique_submission_ids": 30345,
+    "unique_gene_identifiers": 6109,
+    "unique_gene_symbols": 6109,
+    "unique_canonical_disease_identifiers": 8139,
+    "unique_original_disease_identifiers": 12496,
+    "unique_submitters": 19,
+    "assertions_with_publications": 23135
+  },
+  "classification_counts": {
+    "Definitive": 5781,
+    "Disputed Evidence": 304,
+    "Limited": 4411,
+    "Moderate": 3150,
+    "No Known Disease Relationship": 256,
+    "Refuted Evidence": 59,
+    "Strong": 11314,
+    "Supportive": 5070
+  },
+  "mode_of_inheritance_counts": {
+    "Autosomal dominant": 12182,
+    "Autosomal recessive": 15220,
+    "Digenic inheritance": 1,
+    "Mitochondrial": 106,
+    "Semidominant": 286,
+    "Unknown": 1008,
+    "X-linked": 1510,
+    "X-linked recessive": 30,
+    "Y-linked inheritance": 2
+  },
+  "row_errors": [],
+  "interpretation_note": "Counts describe imported GenCC submission records. They do not establish independent clinical validity. Canonical and original disease identifiers are counted separately and are not merged by name."
+}

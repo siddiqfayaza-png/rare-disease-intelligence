@@ -1,0 +1,131 @@
+{
+  "report_schema_version": "1.0",
+  "report_date_utc": "2026-10-20",
+  "research_only": true,
+  "clinical_validation": false,
+  "environment": {
+    "python_version": "3.12.10",
+    "platform": "Windows-11-10.0.26300-SP0"
+  },
+  "inputs": {
+    "hpo_ontology": {
+      "path": "data\\raw\\hp-base.obo",
+      "size_bytes": 11424063,
+      "sha256": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418"
+    },
+    "hpoa_annotations": {
+      "path": "data\\external\\phenotype.hpoa",
+      "size_bytes": 35816037,
+      "sha256": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72"
+    },
+    "gencc_export": {
+      "path": "data\\external\\gencc-submissions.csv",
+      "size_bytes": 26975188,
+      "sha256": "d50bd0b49dc70d8270c01ed864a41ba1878c60c9abda8976f9b55cf25c79594a"
+    }
+  },
+  "dataset_counts": {
+    "hpo_ontology_terms": 20482,
+    "hpoa_annotation_records": 286651,
+    "hpoa_indexed_disease_ids": 12880,
+    "gencc_rows_read": 30345,
+    "gencc_assertions_imported": 30345,
+    "gencc_import_errors": 0
+  },
+  "gencc_matching_audit": {
+    "matched_assertions": 16645,
+    "unmatched_assertions": 13700,
+    "matched_by_original_id": 16645,
+    "matched_by_canonical_id": 0,
+    "distinct_matched_disease_gene_pairs": 6488,
+    "matched_pairs_with_multiple_raw_classifications": 3781,
+    "matching_policy": "Exact identifier equality only; original disease identifier preferred; disease-name matching is not used.",
+    "evidence_provenance_retained": true,
+    "clinical_interpretation_performed": false
+  },
+  "synthetic_workflow": {
+    "test_type": "synthetic_workflow_smoke_test",
+    "synthetic_input": true,
+    "clinical_accuracy_evaluated": false,
+    "selected_disease_id_for_test_construction": "OMIM:100100",
+    "selected_gene_symbol_for_test_construction": "CHRM3",
+    "synthetic_phenotype_count": 16,
+    "phenotype_candidates_returned": 12880,
+    "synthetic_variants_supplied": 2,
+    "valid_variants_prioritized": 2,
+    "selected_disease_present_in_ranking": true,
+    "matched_assertions_for_selected_disease_gene": 1,
+    "evidence_categories_for_selected_disease": {
+      "supporting": 1,
+      "disputed": 0,
+      "refuting": 0,
+      "no_known_relationship": 0,
+      "unspecified": 0,
+      "unrecognized": 0
+    },
+    "integration_report": {
+      "research_only": true,
+      "score_policy": "Phenotype and variant heuristic scores are reported separately; they are not combined and are not clinical probabilities. GenCC classifications are preserved as evidence categories, not clinical conclusions. Conflicting assertions are not resolved. Evidence summaries count assertions by category and do not establish causality or variant pathogenicity.",
+      "evidence_category_definitions": {
+        "supporting": "Assertions classified as Definitive, Strong, Moderate, Limited, or Supportive.",
+        "disputed": "Assertions classified as Disputed Evidence.",
+        "refuting": "Assertions classified as Refuted Evidence.",
+        "no_known_relationship": "Assertions classified as No Known Disease Relationship.",
+        "unspecified": "Assertions without a classification.",
+        "unrecognized": "Assertions whose classification is not mapped by this module."
+      },
+      "diseases": [
+        {
+          "disease_id": "OMIM:100100",
+          "disease_name": "Prune belly syndrome",
+          "phenotype_rank": 1,
+          "phenotype_score": 1.0,
+          "matched_variants": [
+            {
+              "variant_rank": 1,
+              "gene_symbol": "CHRM3",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-109450",
+              "classification": "Strong",
+              "evidence_category": "supporting",
+              "submitter": "Labcorp Genetics (formerly Invitae)",
+              "canonical_disease_id": "MONDO:0007032",
+              "original_disease_id": "OMIM:100100",
+              "pmids": [
+                "10944224",
+                "22077972",
+                "31441039"
+              ],
+              "public_report_url": null,
+              "assertion_criteria_url": "https://view.publitas.com/invitae/invitaeposter_nsgc2019_curatingthehumangenome/page/1"
+            }
+          ],
+          "evidence_summary": {
+            "supporting": 1,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        }
+      ]
+    },
+    "limitations": [
+      "Synthetic variant records are software-test fixtures, not patient data.",
+      "The disease and gene are selected from existing indexed annotations and GenCC evidence to exercise interfaces.",
+      "The test is not independent and must not be interpreted as a diagnostic benchmark.",
+      "Phenotype and variant heuristic scores remain separate and are not probabilities.",
+      "GenCC assertions and categories are not independently adjudicated by this workflow."
+    ]
+  },
+  "limitations": [
+    "GenCC match counts measure identifier integration coverage, not diagnostic performance.",
+    "The GenCC export may omit source assertions, including assertions from data sources excluded by the export.",
+    "Unmatched identifiers are not necessarily incorrect; identifier namespaces and coverage can differ.",
+    "The synthetic workflow is a software integration check, not an independent evaluation dataset.",
+    "No patient-level diagnostic accuracy, sensitivity, specificity, or clinical utility is estimated."
+  ]
+}

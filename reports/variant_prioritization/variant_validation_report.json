@@ -1,0 +1,13 @@
+{
+  "research_only": true,
+  "input_file": "example_variants.csv",
+  "rows_read": 4,
+  "valid_variants": 3,
+  "invalid_rows": 1,
+  "ranked_variants": 3,
+  "max_allele_frequency": 0.01,
+  "validation_errors": [
+    "Row 5: could not parse variant fields (invalid literal for int() with base 10: 'not-a-number')."
+  ],
+  "score_interpretation": "Heuristic prioritization only; not a pathogenicity classification or clinical diagnosis."
+}

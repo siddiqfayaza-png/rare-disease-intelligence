@@ -1,0 +1,2429 @@
+{
+  "report_schema_version": "1.0",
+  "status": "completed",
+  "test_type": "real_reference_data_synthetic_input_smoke_test",
+  "research_only": true,
+  "clinical_validation": false,
+  "benchmark_evaluation": false,
+  "synthetic_inputs": {
+    "case_id": "SYNTHETIC-INTEGRATION-SMOKE-001",
+    "phenotype_term": "Autosomal dominant inheritance",
+    "variant": {
+      "gene_symbol": "SKI",
+      "consequence": "missense_variant",
+      "position_is_synthetic": true,
+      "allele_frequency_is_synthetic": true
+    },
+    "fixture_selection_note": "The synthetic phenotype was selected from the chosen disease's HPOA profile to exercise integration. This is target-informed test construction, not independent diagnostic evaluation."
+  },
+  "reference_data": {
+    "hpo_release": "v2026-09-01",
+    "hpoa_release": "2026-09-02",
+    "gencc_retrieved_date": "2026-10-20",
+    "go_archive_date": "2026-08-05",
+    "go_ontology_data_version": "releases/2026-07-26",
+    "go_annotation_generated_at": "2026-07-28 19:42",
+    "sha256_verified": {
+      "hpo_ontology": "8cf51771f19a1168871ef3ded0da86c51e4c9630068da726ece7eb61406a2418",
+      "hpo_annotations": "e89aa39c8f97bf5a52c5d160f9250a603681d630ade8ec2679d84ac5aece1f72",
+      "gencc": "d50bd0b49dc70d8270c01ed864a41ba1878c60c9abda8976f9b55cf25c79594a",
+      "go_ontology": "b08d45b268b8c24ccb2513dbbbc7d4df9f6521c099b413f79eb31e06e0fa3bcc",
+      "go_annotations": "a0afba19dfb1f8fa996bc1bdcd61fd0c9bd4cf0d2bf2509d09ac86993c0e70a2"
+    },
+    "counts": {
+      "hpo_annotations": 286651,
+      "diseases_indexed": 12880,
+      "gencc_rows_read": 30345,
+      "gencc_assertions_imported": 30345,
+      "gencc_row_errors": 0,
+      "go_rows_read": 910476,
+      "go_annotations_imported": 910476,
+      "go_rows_filtered_by_taxon": 0,
+      "go_row_errors": 0
+    }
+  },
+  "workflow_result": {
+    "case_id": "SYNTHETIC-INTEGRATION-SMOKE-001",
+    "research_only": true,
+    "limitations": [
+      "Research prototype; not for clinical diagnosis or treatment decisions.",
+      "Phenotype scores are heuristic ranking signals, not probabilities.",
+      "Variant scores are heuristic prioritization signals, not pathogenicity estimates.",
+      "Phenotype and variant scores are kept separate and are not combined.",
+      "Gene-disease assertions are preserved as evidence, not treated as proof of causality.",
+      "Gene Ontology annotations describe gene-level annotations and do not establish that a variant causes a disease.",
+      "Conflicting assertions are not automatically resolved.",
+      "Unresolved, ambiguous, and obsolete phenotype inputs are retained in the audit but are not passed to phenotype ranking."
+    ],
+    "normalization": {
+      "records": [
+        {
+          "original_text": "Autosomal dominant inheritance",
+          "status": "resolved",
+          "hpo_id": "HP:0000006",
+          "preferred_label": "Autosomal dominant inheritance",
+          "matched_synonym": null,
+          "candidate_hpo_ids": []
+        }
+      ],
+      "counts_by_status": {
+        "resolved": 1
+      },
+      "resolved_unique_hpo_ids": [
+        "HP:0000006"
+      ]
+    },
+    "phenotype_rankings": [
+      {
+        "database_id": "OMIM:100070",
+        "disease_name": "Aortic aneurysm, abdominal",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100200",
+        "disease_name": "Abducens palsy",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100300",
+        "disease_name": "Adams-Oliver syndrome 1",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100600",
+        "disease_name": "Acanthosis nigricans",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100650",
+        "disease_name": "Alcohol sensitivity, acute",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100700",
+        "disease_name": "Achard syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100800",
+        "disease_name": "Achondroplasia",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:100820",
+        "disease_name": "Achoo syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101000",
+        "disease_name": "Neurofibromatosis, type II",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101200",
+        "disease_name": "Apert syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101400",
+        "disease_name": "Saethre-Chotzen syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101600",
+        "disease_name": "Pfeiffer syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101800",
+        "disease_name": "Acrodysostosis 1, with or without hormone resistance",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101805",
+        "disease_name": "Acrofacial dysostosis, Catania type",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101840",
+        "disease_name": "Acrokeratoderma, hereditary papulotranslucent",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101850",
+        "disease_name": "Keratoderma, palmoplantar, punctate type 3",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:101900",
+        "disease_name": "Acrokeratosis verruciformis",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:102100",
+        "disease_name": "Acromegaloid changes, cutis verticis gyrata, and corneal leukoma",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:102150",
+        "disease_name": "Acromegaloid facial appearance syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:102200",
+        "disease_name": "Pituitary adenoma, growth hormone-secreting, 1",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0000006"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      }
+    ],
+    "variant_rankings": [
+      {
+        "variant": {
+          "chromosome": "1",
+          "position": 12345,
+          "reference": "A",
+          "alternate": "T",
+          "gene_symbol": "SKI",
+          "consequence": "missense_variant",
+          "zygosity": "heterozygous",
+          "allele_frequency": 0.001
+        },
+        "score": 3.0,
+        "reasons": [
+          "Consequence heuristic: missense_variant",
+          "Allele frequency meets the configured rarity threshold."
+        ]
+      }
+    ],
+    "gencc_audit": {
+      "matched_assertions": 16645,
+      "unmatched_assertions": 13700,
+      "matched_by_original_id": 16645,
+      "matched_by_canonical_id": 0,
+      "evidence_assertions_retained": 16645
+    },
+    "integrated_evidence": {
+      "research_only": true,
+      "score_policy": "Phenotype and variant heuristic scores are reported separately; they are not combined and are not clinical probabilities. GenCC classifications are preserved as evidence categories, not clinical conclusions. Conflicting assertions are not resolved. Evidence summaries count assertions by category and do not establish causality or variant pathogenicity.",
+      "evidence_category_definitions": {
+        "supporting": "Assertions classified as Definitive, Strong, Moderate, Limited, or Supportive.",
+        "disputed": "Assertions classified as Disputed Evidence.",
+        "refuting": "Assertions classified as Refuted Evidence.",
+        "no_known_relationship": "Assertions classified as No Known Disease Relationship.",
+        "unspecified": "Assertions without a classification.",
+        "unrecognized": "Assertions whose classification is not mapped by this module."
+      },
+      "diseases": [
+        {
+          "disease_id": "OMIM:100070",
+          "disease_name": "Aortic aneurysm, abdominal",
+          "phenotype_rank": 1,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100200",
+          "disease_name": "Abducens palsy",
+          "phenotype_rank": 2,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100300",
+          "disease_name": "Adams-Oliver syndrome 1",
+          "phenotype_rank": 3,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100600",
+          "disease_name": "Acanthosis nigricans",
+          "phenotype_rank": 4,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100650",
+          "disease_name": "Alcohol sensitivity, acute",
+          "phenotype_rank": 5,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100700",
+          "disease_name": "Achard syndrome",
+          "phenotype_rank": 6,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100800",
+          "disease_name": "Achondroplasia",
+          "phenotype_rank": 7,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:100820",
+          "disease_name": "Achoo syndrome",
+          "phenotype_rank": 8,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101000",
+          "disease_name": "Neurofibromatosis, type II",
+          "phenotype_rank": 9,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101200",
+          "disease_name": "Apert syndrome",
+          "phenotype_rank": 10,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101400",
+          "disease_name": "Saethre-Chotzen syndrome",
+          "phenotype_rank": 11,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101600",
+          "disease_name": "Pfeiffer syndrome",
+          "phenotype_rank": 12,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101800",
+          "disease_name": "Acrodysostosis 1, with or without hormone resistance",
+          "phenotype_rank": 13,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101805",
+          "disease_name": "Acrofacial dysostosis, Catania type",
+          "phenotype_rank": 14,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101840",
+          "disease_name": "Acrokeratoderma, hereditary papulotranslucent",
+          "phenotype_rank": 15,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101850",
+          "disease_name": "Keratoderma, palmoplantar, punctate type 3",
+          "phenotype_rank": 16,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:101900",
+          "disease_name": "Acrokeratosis verruciformis",
+          "phenotype_rank": 17,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:102100",
+          "disease_name": "Acromegaloid changes, cutis verticis gyrata, and corneal leukoma",
+          "phenotype_rank": 18,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:102150",
+          "disease_name": "Acromegaloid facial appearance syndrome",
+          "phenotype_rank": 19,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:102200",
+          "disease_name": "Pituitary adenoma, growth hormone-secreting, 1",
+          "phenotype_rank": 20,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        }
+      ]
+    },
+    "mechanisms": {
+      "report_type": "gene_mechanism_investigation",
+      "research_only": true,
+      "requested_gene_count": 1,
+      "matched_gene_count": 1,
+      "unmatched_gene_symbols": [],
+      "annotations_returned": 116,
+      "results": [
+        {
+          "gene_symbol": "SKI",
+          "annotation_count": 116,
+          "annotations": [
+            {
+              "annotation_id": "GO:0000122",
+              "annotation_label": "negative regulation of transcription by RNA polymerase II",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0000122",
+              "annotation_label": "negative regulation of transcription by RNA polymerase II",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17469184"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0000122",
+              "annotation_label": "negative regulation of transcription by RNA polymerase II",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IMP",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12435627"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0001843",
+              "annotation_label": "neural tube closure",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0002089",
+              "annotation_label": "lens morphogenesis in camera-type eye",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0007179",
+              "annotation_label": "transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "NAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14583455"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0008285",
+              "annotation_label": "negative regulation of cell population proliferation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:11430826"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0009948",
+              "annotation_label": "anterior/posterior axis specification",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0010626",
+              "annotation_label": "negative regulation of Schwann cell proliferation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IGI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:15312649"
+              ],
+              "qualifier": "acts_upstream_of_or_within",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0014902",
+              "annotation_label": "myotube differentiation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19008232"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0021772",
+              "annotation_label": "olfactory bulb development",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0022011",
+              "annotation_label": "myelination in peripheral nervous system",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030177",
+              "annotation_label": "positive regulation of Wnt signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "NAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14583455"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030326",
+              "annotation_label": "embryonic limb morphogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12874272"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17469184"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IGI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:15312649"
+              ],
+              "qualifier": "acts_upstream_of_or_within",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IMP",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17054724"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030512",
+              "annotation_label": "negative regulation of transforming growth factor beta receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IMP",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19049980"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030514",
+              "annotation_label": "negative regulation of BMP signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030514",
+              "annotation_label": "negative regulation of BMP signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14699069"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0030514",
+              "annotation_label": "negative regulation of BMP signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IMP",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17054724"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0032926",
+              "annotation_label": "negative regulation of activin receptor signaling pathway",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14699069"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0035019",
+              "annotation_label": "somatic stem cell population maintenance",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0043010",
+              "annotation_label": "camera-type eye development",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0043388",
+              "annotation_label": "positive regulation of DNA binding",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:15107821"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0043585",
+              "annotation_label": "nose morphogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0045668",
+              "annotation_label": "negative regulation of osteoblast differentiation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14699069"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0045944",
+              "annotation_label": "positive regulation of transcription by RNA polymerase II",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0048147",
+              "annotation_label": "negative regulation of fibroblast proliferation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0048593",
+              "annotation_label": "camera-type eye morphogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0048741",
+              "annotation_label": "skeletal muscle fiber development",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0048870",
+              "annotation_label": "cell motility",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "NAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14583455"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0050767",
+              "annotation_label": "regulation of neurogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060021",
+              "annotation_label": "roof of mouth development",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060038",
+              "annotation_label": "cardiac muscle cell proliferation",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000107"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060041",
+              "annotation_label": "retina development in camera-type eye",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060325",
+              "annotation_label": "face morphogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060349",
+              "annotation_label": "bone morphogenesis",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0060392",
+              "annotation_label": "negative regulation of SMAD protein signal transduction",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12874272"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0061061",
+              "annotation_label": "muscle structure development",
+              "annotation_type": "biological_process",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "involved_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005634",
+              "annotation_label": "nucleus",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "is_active_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005634",
+              "annotation_label": "nucleus",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:10049357"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005634",
+              "annotation_label": "nucleus",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17054724"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005634",
+              "annotation_label": "nucleus",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17510063"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005634",
+              "annotation_label": "nucleus",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000044"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000052"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "TAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "Reactome:R-HSA-173481"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "TAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "Reactome:R-HSA-201423"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "TAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "Reactome:R-HSA-2186767"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "TAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "Reactome:R-NUL-2186736"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005654",
+              "annotation_label": "nucleoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "TAS",
+              "evidence_label": null,
+              "reference_ids": [
+                "Reactome:R-NUL-2186755"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005667",
+              "annotation_label": "transcription regulator complex",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "part_of",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005667",
+              "annotation_label": "transcription regulator complex",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "part_of",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005737",
+              "annotation_label": "cytoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "is_active_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005737",
+              "annotation_label": "cytoplasm",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005813",
+              "annotation_label": "centrosome",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:21600873"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0016604",
+              "annotation_label": "nuclear body",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000052"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0016604",
+              "annotation_label": "nuclear body",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12874272"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0016605",
+              "annotation_label": "PML body",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:11430826"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0016605",
+              "annotation_label": "PML body",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "located_in",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0017053",
+              "annotation_label": "transcription repressor complex",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "part_of",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0032991",
+              "annotation_label": "protein-containing complex",
+              "annotation_type": "cellular_component",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:23610558"
+              ],
+              "qualifier": "part_of",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0000978",
+              "annotation_label": "RNA polymerase II cis-regulatory region sequence-specific DNA binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0000981",
+              "annotation_label": "DNA-binding transcription factor activity, RNA polymerase II-specific",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0001227",
+              "annotation_label": "DNA-binding transcription repressor activity, RNA polymerase II-specific",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17469184"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0001227",
+              "annotation_label": "DNA-binding transcription repressor activity, RNA polymerase II-specific",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:10049357"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:10049357"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:10049357"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12419246"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12435627"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12646588"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14525983"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14525983"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14525983"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:14525983"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:15231748"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:18729074"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19008232"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19008232"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19032343"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19032343"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19032343"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19032343"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19049980"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:19049980"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:22334647"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:22442258"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:22442258"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:23610558"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:25609649"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:26977879"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:26977879"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:33961781"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:33961781"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:33961781"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:34819669"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:40205054"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:8514802"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0005515",
+              "annotation_label": "protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:9569025"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0008270",
+              "annotation_label": "zinc ion binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IDA",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12419246"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0019901",
+              "annotation_label": "protein kinase binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12874272"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0019904",
+              "annotation_label": "protein domain specific binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:11441023"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0031625",
+              "annotation_label": "ubiquitin protein ligase binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17510063"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0042802",
+              "annotation_label": "identical protein binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:8514802"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IBA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000033"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000002"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IEA",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000117"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:15107821"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17469184"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046332",
+              "annotation_label": "SMAD binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:17469184"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0046811",
+              "annotation_label": "histone deacetylase inhibitor activity",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "ISS",
+              "evidence_label": null,
+              "reference_ids": [
+                "GO_REF:0000024"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            },
+            {
+              "annotation_id": "GO:0140297",
+              "annotation_label": "DNA-binding transcription factor binding",
+              "annotation_type": "molecular_function",
+              "source_name": "Gene Ontology Annotation (UniProtKB)",
+              "source_release": "GO archive 2026-08-05; ontology releases/2026-07-26",
+              "source_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+              "evidence_code": "IPI",
+              "evidence_label": null,
+              "reference_ids": [
+                "PMID:12435627"
+              ],
+              "qualifier": "enables",
+              "taxon_id": "taxon:9606"
+            }
+          ]
+        }
+      ],
+      "interpretation_limits": [
+        "GO annotations describe recorded gene-associated functions or processes.",
+        "Annotations do not establish that a variant causes a disease.",
+        "Evidence codes and qualifiers must be considered in context.",
+        "Missing annotations do not establish absence of a biological mechanism."
+      ]
+    }
+  },
+  "limitations": [
+    "Synthetic inputs are not patient data.",
+    "The phenotype was selected using the target disease profile.",
+    "This is a smoke test, not an independent benchmark.",
+    "Gene-disease assertions and GO annotations do not establish causality.",
+    "Variant scores are heuristic and are not clinical pathogenicity classifications.",
+    "The system is not validated for clinical decision-making."
+  ]
+}
