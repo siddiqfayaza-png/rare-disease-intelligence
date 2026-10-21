@@ -7,7 +7,7 @@
   "benchmark_evaluation": false,
   "synthetic_inputs": {
     "case_id": "SYNTHETIC-INTEGRATION-SMOKE-001",
-    "phenotype_term": "Autosomal dominant inheritance",
+    "phenotype_term": "Craniosynostosis",
     "variant": {
       "gene_symbol": "SKI",
       "consequence": "missense_variant",
@@ -58,10 +58,10 @@
     "normalization": {
       "records": [
         {
-          "original_text": "Autosomal dominant inheritance",
+          "original_text": "Craniosynostosis",
           "status": "resolved",
-          "hpo_id": "HP:0000006",
-          "preferred_label": "Autosomal dominant inheritance",
+          "hpo_id": "HP:0001363",
+          "preferred_label": "Craniosynostosis",
           "matched_synonym": null,
           "candidate_hpo_ids": []
         }
@@ -70,113 +70,17 @@
         "resolved": 1
       },
       "resolved_unique_hpo_ids": [
-        "HP:0000006"
+        "HP:0001363"
       ]
     },
     "phenotype_rankings": [
       {
-        "database_id": "OMIM:100070",
-        "disease_name": "Aortic aneurysm, abdominal",
+        "database_id": "DECIPHER:81",
+        "disease_name": "15q26 overgrowth syndrome",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100200",
-        "disease_name": "Abducens palsy",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100300",
-        "disease_name": "Adams-Oliver syndrome 1",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100600",
-        "disease_name": "Acanthosis nigricans",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100650",
-        "disease_name": "Alcohol sensitivity, acute",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100700",
-        "disease_name": "Achard syndrome",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100800",
-        "disease_name": "Achondroplasia",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:100820",
-        "disease_name": "Achoo syndrome",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
-        ],
-        "related_matches": [],
-        "unmatched_patient_hpo_ids": [],
-        "negative_matches": []
-      },
-      {
-        "database_id": "OMIM:101000",
-        "disease_name": "Neurofibromatosis, type II",
-        "score": 1.0,
-        "semantic_score": null,
-        "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
@@ -188,127 +92,223 @@
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101400",
-        "disease_name": "Saethre-Chotzen syndrome",
+        "database_id": "OMIM:109050",
+        "disease_name": "Auralcephalosyndactyly",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101600",
-        "disease_name": "Pfeiffer syndrome",
+        "database_id": "OMIM:123100",
+        "disease_name": "Craniosynostosis 1",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101800",
-        "disease_name": "Acrodysostosis 1, with or without hormone resistance",
+        "database_id": "OMIM:123150",
+        "disease_name": "Jackson-Weiss syndrome",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101805",
-        "disease_name": "Acrofacial dysostosis, Catania type",
+        "database_id": "OMIM:123790",
+        "disease_name": "Beare-Stevenson cutis gyrata syndrome",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101840",
-        "disease_name": "Acrokeratoderma, hereditary papulotranslucent",
+        "database_id": "OMIM:130070",
+        "disease_name": "Ehlers-Danlos syndrome, spondylodysplastic type, 1",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101850",
-        "disease_name": "Keratoderma, palmoplantar, punctate type 3",
+        "database_id": "OMIM:146000",
+        "disease_name": "Hypochondroplasia",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:101900",
-        "disease_name": "Acrokeratosis verruciformis",
+        "database_id": "OMIM:147060",
+        "disease_name": "Hyper-IgE recurrent infection syndrome",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:102100",
-        "disease_name": "Acromegaloid changes, cutis verticis gyrata, and corneal leukoma",
+        "database_id": "OMIM:147920",
+        "disease_name": "Kabuki syndrome 1",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:102150",
-        "disease_name": "Acromegaloid facial appearance syndrome",
+        "database_id": "OMIM:148800",
+        "disease_name": "Kleeblattschaedel syndrome",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
         "negative_matches": []
       },
       {
-        "database_id": "OMIM:102200",
-        "disease_name": "Pituitary adenoma, growth hormone-secreting, 1",
+        "database_id": "OMIM:166250",
+        "disease_name": "Osteoglophonic dysplasia",
         "score": 1.0,
         "semantic_score": null,
         "exact_matches": [
-          "HP:0000006"
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:175700",
+        "disease_name": "Greig cephalopolysyndactyly syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:176700",
+        "disease_name": "Prognathism, mandibular",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:178110",
+        "disease_name": "Contractures, pterygia, and spondylocarpostarsal fusion syndrome 1A",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:180750",
+        "disease_name": "Robinow-Sorauf syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:182212",
+        "disease_name": "Shprintzen-Goldberg craniosynostosis syndrome",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:185700",
+        "disease_name": "Symphalangism, distal",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:190440",
+        "disease_name": "Trigonocephaly 1",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
+        ],
+        "related_matches": [],
+        "unmatched_patient_hpo_ids": [],
+        "negative_matches": []
+      },
+      {
+        "database_id": "OMIM:200995",
+        "disease_name": "Acrocephalopolydactylous dysplasia",
+        "score": 1.0,
+        "semantic_score": null,
+        "exact_matches": [
+          "HP:0001363"
         ],
         "related_matches": [],
         "unmatched_patient_hpo_ids": [],
@@ -354,129 +354,9 @@
       },
       "diseases": [
         {
-          "disease_id": "OMIM:100070",
-          "disease_name": "Aortic aneurysm, abdominal",
+          "disease_id": "DECIPHER:81",
+          "disease_name": "15q26 overgrowth syndrome",
           "phenotype_rank": 1,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100200",
-          "disease_name": "Abducens palsy",
-          "phenotype_rank": 2,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100300",
-          "disease_name": "Adams-Oliver syndrome 1",
-          "phenotype_rank": 3,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100600",
-          "disease_name": "Acanthosis nigricans",
-          "phenotype_rank": 4,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100650",
-          "disease_name": "Alcohol sensitivity, acute",
-          "phenotype_rank": 5,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100700",
-          "disease_name": "Achard syndrome",
-          "phenotype_rank": 6,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100800",
-          "disease_name": "Achondroplasia",
-          "phenotype_rank": 7,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:100820",
-          "disease_name": "Achoo syndrome",
-          "phenotype_rank": 8,
-          "phenotype_score": 1.0,
-          "matched_variants": [],
-          "evidence_summary": {
-            "supporting": 0,
-            "disputed": 0,
-            "refuting": 0,
-            "no_known_relationship": 0,
-            "unspecified": 0,
-            "unrecognized": 0
-          }
-        },
-        {
-          "disease_id": "OMIM:101000",
-          "disease_name": "Neurofibromatosis, type II",
-          "phenotype_rank": 9,
           "phenotype_score": 1.0,
           "matched_variants": [],
           "evidence_summary": {
@@ -491,6 +371,126 @@
         {
           "disease_id": "OMIM:101200",
           "disease_name": "Apert syndrome",
+          "phenotype_rank": 2,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:109050",
+          "disease_name": "Auralcephalosyndactyly",
+          "phenotype_rank": 3,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:123100",
+          "disease_name": "Craniosynostosis 1",
+          "phenotype_rank": 4,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:123150",
+          "disease_name": "Jackson-Weiss syndrome",
+          "phenotype_rank": 5,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:123790",
+          "disease_name": "Beare-Stevenson cutis gyrata syndrome",
+          "phenotype_rank": 6,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:130070",
+          "disease_name": "Ehlers-Danlos syndrome, spondylodysplastic type, 1",
+          "phenotype_rank": 7,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:146000",
+          "disease_name": "Hypochondroplasia",
+          "phenotype_rank": 8,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:147060",
+          "disease_name": "Hyper-IgE recurrent infection syndrome",
+          "phenotype_rank": 9,
+          "phenotype_score": 1.0,
+          "matched_variants": [],
+          "evidence_summary": {
+            "supporting": 0,
+            "disputed": 0,
+            "refuting": 0,
+            "no_known_relationship": 0,
+            "unspecified": 0,
+            "unrecognized": 0
+          }
+        },
+        {
+          "disease_id": "OMIM:147920",
+          "disease_name": "Kabuki syndrome 1",
           "phenotype_rank": 10,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -504,8 +504,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101400",
-          "disease_name": "Saethre-Chotzen syndrome",
+          "disease_id": "OMIM:148800",
+          "disease_name": "Kleeblattschaedel syndrome",
           "phenotype_rank": 11,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -519,8 +519,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101600",
-          "disease_name": "Pfeiffer syndrome",
+          "disease_id": "OMIM:166250",
+          "disease_name": "Osteoglophonic dysplasia",
           "phenotype_rank": 12,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -534,8 +534,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101800",
-          "disease_name": "Acrodysostosis 1, with or without hormone resistance",
+          "disease_id": "OMIM:175700",
+          "disease_name": "Greig cephalopolysyndactyly syndrome",
           "phenotype_rank": 13,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -549,8 +549,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101805",
-          "disease_name": "Acrofacial dysostosis, Catania type",
+          "disease_id": "OMIM:176700",
+          "disease_name": "Prognathism, mandibular",
           "phenotype_rank": 14,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -564,8 +564,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101840",
-          "disease_name": "Acrokeratoderma, hereditary papulotranslucent",
+          "disease_id": "OMIM:178110",
+          "disease_name": "Contractures, pterygia, and spondylocarpostarsal fusion syndrome 1A",
           "phenotype_rank": 15,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -579,8 +579,8 @@
           }
         },
         {
-          "disease_id": "OMIM:101850",
-          "disease_name": "Keratoderma, palmoplantar, punctate type 3",
+          "disease_id": "OMIM:180750",
+          "disease_name": "Robinow-Sorauf syndrome",
           "phenotype_rank": 16,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -594,13 +594,100 @@
           }
         },
         {
-          "disease_id": "OMIM:101900",
-          "disease_name": "Acrokeratosis verruciformis",
+          "disease_id": "OMIM:182212",
+          "disease_name": "Shprintzen-Goldberg craniosynostosis syndrome",
           "phenotype_rank": 17,
           "phenotype_score": 1.0,
-          "matched_variants": [],
+          "matched_variants": [
+            {
+              "variant_rank": 1,
+              "gene_symbol": "SKI",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-100001",
+              "classification": "Definitive",
+              "evidence_category": "supporting",
+              "submitter": "Ambry Genetics",
+              "canonical_disease_id": "MONDO:0008426",
+              "original_disease_id": "OMIM:182212",
+              "pmids": [],
+              "public_report_url": null,
+              "assertion_criteria_url": "PMID: 28106320"
+            },
+            {
+              "variant_rank": 1,
+              "gene_symbol": "SKI",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-108922",
+              "classification": "Strong",
+              "evidence_category": "supporting",
+              "submitter": "Genomics England PanelApp",
+              "canonical_disease_id": "MONDO:0008426",
+              "original_disease_id": "OMIM:182212",
+              "pmids": [],
+              "public_report_url": "https://panelapp.genomicsengland.co.uk/panels/53",
+              "assertion_criteria_url": null
+            },
+            {
+              "variant_rank": 1,
+              "gene_symbol": "SKI",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-109843",
+              "classification": "Strong",
+              "evidence_category": "supporting",
+              "submitter": "Labcorp Genetics (formerly Invitae)",
+              "canonical_disease_id": "MONDO:0008426",
+              "original_disease_id": "OMIM:182212",
+              "pmids": [
+                "23023332",
+                "23103230"
+              ],
+              "public_report_url": null,
+              "assertion_criteria_url": "https://view.publitas.com/invitae/invitaeposter_nsgc2019_curatingthehumangenome/page/1"
+            },
+            {
+              "variant_rank": 1,
+              "gene_symbol": "SKI",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-120739",
+              "classification": "Strong",
+              "evidence_category": "supporting",
+              "submitter": "PanelApp Australia",
+              "canonical_disease_id": "MONDO:0008426",
+              "original_disease_id": "OMIM:182212",
+              "pmids": [
+                "15884042",
+                "23023332"
+              ],
+              "public_report_url": "https://panelapp-aus.org",
+              "assertion_criteria_url": "https://panelapp-aus.org"
+            },
+            {
+              "variant_rank": 1,
+              "gene_symbol": "SKI",
+              "variant_score": 3.0,
+              "consequence": "missense_variant",
+              "evidence_source": "GenCC",
+              "evidence_id": "SGC-122539",
+              "classification": "Definitive",
+              "evidence_category": "supporting",
+              "submitter": "G2P",
+              "canonical_disease_id": "MONDO:0008426",
+              "original_disease_id": "OMIM:182212",
+              "pmids": [],
+              "public_report_url": "https://www.ebi.ac.uk/gene2phenotype/lgd/G2P01276",
+              "assertion_criteria_url": "https://www.ebi.ac.uk/gene2phenotype/about/terminology"
+            }
+          ],
           "evidence_summary": {
-            "supporting": 0,
+            "supporting": 5,
             "disputed": 0,
             "refuting": 0,
             "no_known_relationship": 0,
@@ -609,8 +696,8 @@
           }
         },
         {
-          "disease_id": "OMIM:102100",
-          "disease_name": "Acromegaloid changes, cutis verticis gyrata, and corneal leukoma",
+          "disease_id": "OMIM:185700",
+          "disease_name": "Symphalangism, distal",
           "phenotype_rank": 18,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -624,8 +711,8 @@
           }
         },
         {
-          "disease_id": "OMIM:102150",
-          "disease_name": "Acromegaloid facial appearance syndrome",
+          "disease_id": "OMIM:190440",
+          "disease_name": "Trigonocephaly 1",
           "phenotype_rank": 19,
           "phenotype_score": 1.0,
           "matched_variants": [],
@@ -639,8 +726,8 @@
           }
         },
         {
-          "disease_id": "OMIM:102200",
-          "disease_name": "Pituitary adenoma, growth hormone-secreting, 1",
+          "disease_id": "OMIM:200995",
+          "disease_name": "Acrocephalopolydactylous dysplasia",
           "phenotype_rank": 20,
           "phenotype_score": 1.0,
           "matched_variants": [],

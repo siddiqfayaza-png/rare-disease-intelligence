@@ -124,14 +124,34 @@ def main() -> None:
             continue
 
         profile = disease_index[disease_id]
+
+        # Prefer a clinically descriptive phenotype over inheritance-mode
+        # annotations. Keep selection deterministic and require an HPO label.
+        available_hpo_ids = [
+            value
+            for value in sorted(profile.positive_hpo_ids)
+            if ontology.get_term(value) is not None
+        ]
+        clinical_hpo_ids = [
+            value
+            for value in available_hpo_ids
+            if "inheritance" not in ontology.get_term(value).name.casefold()
+            and value != "HP:0000006"
+        ]
+        preferred_hpo_ids = (
+            "HP:0001363",  # Craniosynostosis
+            "HP:0001263",  # Global developmental delay
+            "HP:0001252",  # Hypotonia
+        )
         hpo_id = next(
             (
                 value
-                for value in sorted(profile.positive_hpo_ids)
-                if ontology.get_term(value) is not None
+                for value in preferred_hpo_ids
+                if value in clinical_hpo_ids
             ),
-            None,
+            next(iter(clinical_hpo_ids), None),
         )
+
         if hpo_id:
             selected = assertion
             selected_disease_id = disease_id
