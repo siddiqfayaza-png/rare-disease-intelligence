@@ -1,0 +1,22 @@
+{
+  "source": "Gene Ontology",
+  "ontology_archive_date": "2026-08-05",
+  "ontology_data_version": "releases/2026-07-26",
+  "ontology_file": "data/external/go-basic-2026-08-05.obo",
+  "ontology_sha256": "B08D45B268B8C24CCB2513DBBBC7D4DF9F6521C099B413F79EB31E06E0FA3BCC",
+  "ontology_active_terms_parsed": 38092,
+  "annotation_source": "UniProt",
+  "annotation_format": "GAF 2.2",
+  "annotation_generated_at": "2026-07-28 19:42",
+  "annotation_go_version_reference": "http://purl.obolibrary.org/obo/go/releases/2026-07-26/extensions/go-plus.ofn",
+  "annotation_file": "data/external/HUMAN-uniprot-2026-08-05.gaf.gz",
+  "annotation_download_url": "https://release.geneontology.org/2026-08-05/annotations/gaf/HUMAN-uniprot.gaf.gz",
+  "annotation_sha256": "A0AFBA19DFB1F8FA996BC1BDCD61FD0C9BD4CF0D2BF2509D09AC86993C0E70A2",
+  "annotation_records_counted": 910476,
+  "notes": [
+    "SHA-256 values were calculated locally after download.",
+    "Annotation count includes non-comment, non-empty GAF rows before filtering.",
+    "Ontology archive date and internal ontology data version are recorded separately.",
+    "No claim is made that the dataset is clinically validated."
+  ]
+}

@@ -45,9 +45,7 @@ class MechanismEvidence:
                 raise ValueError(f"{field_name} must be a non-empty string")
 
         if self.annotation_type not in SUPPORTED_ANNOTATION_TYPES:
-            raise ValueError(
-                f"Unsupported annotation_type: {self.annotation_type}"
-            )
+            raise ValueError(f"Unsupported annotation_type: {self.annotation_type}")
 
         parsed_url = urlparse(self.source_url)
         if parsed_url.scheme not in {"http", "https"} or not parsed_url.netloc:
@@ -68,21 +66,17 @@ class MechanismEvidence:
             "taxon_id",
         ):
             value = getattr(self, field_name)
-            if value is not None and (
-                not isinstance(value, str) or not value.strip()
-            ):
-                raise ValueError(
-                    f"{field_name} must be None or a non-empty string"
-                )
+            if value is not None and (not isinstance(value, str) or not value.strip()):
+                raise ValueError(f"{field_name} must be None or a non-empty string")
 
 
 def validate_mechanism_evidence(
     records: tuple[MechanismEvidence, ...],
 ) -> tuple[str, ...]:
-    """Return data-quality issues without discarding source records."""
+    """Report exact duplicate assertions without conflating distinct evidence."""
 
     issues: list[str] = []
-    seen: set[tuple[str, str, str, str]] = set()
+    seen: set[tuple[object, ...]] = set()
 
     for index, record in enumerate(records):
         if not isinstance(record, MechanismEvidence):
@@ -92,13 +86,17 @@ def validate_mechanism_evidence(
         identity = (
             record.gene_symbol,
             record.annotation_id,
+            record.annotation_type,
             record.source_name,
             record.source_release,
+            record.evidence_code,
+            record.reference_ids,
+            record.qualifier,
+            record.taxon_id,
         )
+
         if identity in seen:
-            issues.append(
-                f"Record {index}: duplicate gene/annotation/source identity"
-            )
+            issues.append(f"Record {index}: duplicate evidence assertion")
         seen.add(identity)
 
     return tuple(issues)

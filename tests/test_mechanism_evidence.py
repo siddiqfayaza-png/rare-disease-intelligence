@@ -99,15 +99,35 @@ def test_optional_evidence_fields_reject_blank_strings(
         replace(evidence, evidence_code=" ")
 
 
-def test_duplicate_identity_is_reported(
+def test_exact_duplicate_assertion_is_reported(
     evidence: MechanismEvidence,
 ) -> None:
-    duplicate = replace(evidence, annotation_label="Alternative label")
+    duplicate = replace(evidence)
 
     issues = validate_mechanism_evidence((evidence, duplicate))
 
     assert len(issues) == 1
     assert "duplicate" in issues[0].lower()
+
+
+def test_distinct_evidence_assertions_are_not_duplicates(
+    evidence: MechanismEvidence,
+) -> None:
+    different_evidence = replace(
+        evidence,
+        evidence_code="IDA",
+        reference_ids=("PMID:87654321",),
+    )
+
+    assert validate_mechanism_evidence((evidence, different_evidence)) == ()
+
+
+def test_distinct_qualifiers_are_not_duplicates(
+    evidence: MechanismEvidence,
+) -> None:
+    negated_evidence = replace(evidence, qualifier="NOT")
+
+    assert validate_mechanism_evidence((evidence, negated_evidence)) == ()
 
 
 def test_distinct_sources_are_not_duplicates(
@@ -123,7 +143,9 @@ def test_distinct_sources_are_not_duplicates(
 
 
 def test_invalid_record_type_is_reported() -> None:
-    issues = validate_mechanism_evidence(("not evidence",))  # type: ignore[arg-type]
+    issues = validate_mechanism_evidence(
+        ("not evidence",)  # type: ignore[arg-type]
+    )
 
     assert len(issues) == 1
-    assert "unsupported record type" in issues[0]
+    assert "unsupported record type" in issues[0].lower()
