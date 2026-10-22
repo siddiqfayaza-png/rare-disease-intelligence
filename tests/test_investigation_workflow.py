@@ -1,7 +1,9 @@
 ﻿import json
 
+from rare_disease_ai.biomedical_evidence_retrieval import EvidenceDocument
 from rare_disease_ai.case_validation import PatientCase
 from rare_disease_ai.disease_phenotypes import DiseasePhenotypeProfile
+from rare_disease_ai.evidence_retrieval_service import EvidenceRetrievalService
 from rare_disease_ai.gencc_import import GenCCAssertion
 from rare_disease_ai.hpo_graph import HPOGraph
 from rare_disease_ai.hpo_ontology import HPOOntology, HPOTerm
@@ -88,6 +90,23 @@ def test_end_to_end_investigation_report_is_json_serializable():
         taxon_id="taxon:9606",
     )
 
+    # Create synthetic evidence for testing the optional retrieval stage.
+    evidence_document = EvidenceDocument(
+        evidence_id="SYNTHETIC:GO:1",
+        title="Synthetic biological process",
+        text="Synthetic evidence describes a biological process",
+        source_name="Synthetic evidence source",
+        source_release="test-1",
+        source_url="https://example.org/evidence",
+        evidence_type="go_mechanism",
+        entity_ids=("GENE1",),
+        reference_ids=("PMID:12345678",),
+    )
+
+    retrieval_service = EvidenceRetrievalService(
+        documents=(evidence_document,),
+    )
+
     result = run_investigation(
         case=case,
         ontology=ontology,
@@ -97,12 +116,17 @@ def test_end_to_end_investigation_report_is_json_serializable():
         gencc_assertions=(assertion,),
         mechanism_annotations=(mechanism,),
         top_k=10,
+        evidence_retrieval_service=retrieval_service,
+        evidence_query="synthetic biological process",
+        evidence_entity_ids=("GENE1",),
+        evidence_types=("go_mechanism",),
     )
 
     report = investigation_report_to_dict(result)
     encoded = json.dumps(report)
     decoded = json.loads(encoded)
 
+    # Existing workflow assertions.
     assert decoded["research_only"] is True
     assert decoded["case_id"] == "synthetic-case-001"
     assert decoded["normalization"]["counts_by_status"]["resolved"] == 1
@@ -112,6 +136,29 @@ def test_end_to_end_investigation_report_is_json_serializable():
     assert decoded["gencc_audit"]["matched_assertions"] == 1
     assert decoded["integrated_evidence"]["diseases"]
     assert decoded["mechanisms"]["results"]
+
+    # New evidence retrieval assertions.
+    retrieved = decoded["retrieved_evidence"]
+
+    assert retrieved["research_only"] is True
+    assert retrieved["query"] == "synthetic biological process"
+    assert retrieved["total_documents"] == 1
+    assert retrieved["eligible_documents"] == 1
+    assert retrieved["returned_count"] == 1
+    assert "not diagnostic confidence" in retrieved["score_interpretation"]
+
+    hit = retrieved["hits"][0]
+
+    assert hit["evidence_id"] == "SYNTHETIC:GO:1"
+    assert hit["title"] == "Synthetic biological process"
+    assert hit["evidence_type"] == "go_mechanism"
+    assert hit["entity_ids"] == ["GENE1"]
+    assert hit["reference_ids"] == ["PMID:12345678"]
+    assert hit["source_name"] == "Synthetic evidence source"
+    assert hit["source_release"] == "test-1"
+    assert hit["source_url"] == "https://example.org/evidence"
+    assert hit["matched_terms"]
+    assert hit["score"] > 0
 
 
 def test_no_resolved_phenotypes_produces_no_disease_rankings():
@@ -139,4 +186,8 @@ def test_no_resolved_phenotypes_produces_no_disease_rankings():
 
     assert result.disease_rankings == ()
     assert result.integrated_diseases == ()
+    assert result.retrieved_evidence is None
 
+    report = investigation_report_to_dict(result)
+
+    assert report["retrieved_evidence"] is None
