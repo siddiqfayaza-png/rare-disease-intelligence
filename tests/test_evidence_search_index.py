@@ -1,4 +1,5 @@
 import json
+import sqlite3
 
 import pytest
 
@@ -181,3 +182,85 @@ def test_failed_rebuild_does_not_replace_existing_index(tmp_path):
 
     after = EvidenceSearchIndex(index_path).search("gene").hits[0].document.evidence_id
     assert after == before
+
+
+def test_indexed_search_report_matches_baseline_metadata(indexed_corpus):
+    documents, index_path = indexed_corpus
+    query = "  GENE cellular process  "
+
+    expected = retrieve_evidence(query, documents, top_k=2)
+    actual = EvidenceSearchIndex(index_path).search(query, top_k=2)
+
+    assert actual.query == expected.query
+    assert actual.total_documents == expected.total_documents
+    assert actual.eligible_documents == expected.eligible_documents
+    assert actual.research_only is True
+    assert len(actual.hits) == len(expected.hits)
+
+
+def test_indexed_search_is_case_insensitive_and_deduplicates_query_tokens(
+    indexed_corpus,
+):
+    _, index_path = indexed_corpus
+    index = EvidenceSearchIndex(index_path)
+
+    first = index.search("GENE gene CELLULAR")
+    second = index.search("gene cellular")
+
+    assert [hit.document.evidence_id for hit in first.hits] == [
+        hit.document.evidence_id for hit in second.hits
+    ]
+    assert [hit.score for hit in first.hits] == [hit.score for hit in second.hits]
+    assert all(hit.score <= 1.0 for hit in first.hits)
+
+
+def test_indexed_search_returns_no_hits_when_filters_exclude_matches(
+    indexed_corpus,
+):
+    _, index_path = indexed_corpus
+
+    report = EvidenceSearchIndex(index_path).search(
+        "gene cellular process",
+        entity_ids=("GENE:DOES_NOT_EXIST",),
+    )
+
+    assert report.hits == ()
+    assert report.total_documents == 3
+    assert report.eligible_documents == 0
+
+
+def test_indexed_search_combines_filters_and_respects_top_k(indexed_corpus):
+    _, index_path = indexed_corpus
+    index = EvidenceSearchIndex(index_path)
+
+    report = index.search(
+        "mitochondrial transport",
+        top_k=1,
+        entity_ids=("GENE:2",),
+        evidence_types=("pathway",),
+    )
+
+    assert len(report.hits) == 1
+    assert report.hits[0].document.evidence_id == "E3"
+    assert report.total_documents == 3
+    assert report.eligible_documents == 1
+
+
+def test_search_rejects_missing_index(tmp_path):
+    missing_path = tmp_path / "missing.sqlite3"
+
+    with pytest.raises(FileNotFoundError, match="Evidence index not found"):
+        EvidenceSearchIndex(missing_path)
+
+
+def test_search_rejects_unsupported_schema_version(indexed_corpus):
+    _, index_path = indexed_corpus
+
+    with sqlite3.connect(index_path) as connection:
+        connection.execute(
+            "UPDATE metadata SET value = ? WHERE key = ?",
+            ("unsupported-version", "schema_version"),
+        )
+
+    with pytest.raises(ValueError, match="schema version"):
+        EvidenceSearchIndex(index_path)
