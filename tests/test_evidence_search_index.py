@@ -55,7 +55,11 @@ def write_corpus(path, documents):
 def indexed_corpus(tmp_path):
     documents = (
         make_document("E2", "Gene function", "Supports a cellular process"),
-        make_document("E1", "Gene cellular process", "Gene function cellular process"),
+        make_document(
+            "E1",
+            "Gene cellular process",
+            "Gene function cellular process",
+        ),
         make_document(
             "E3",
             "Mitochondrial transport",
@@ -66,8 +70,10 @@ def indexed_corpus(tmp_path):
     )
     corpus_path = tmp_path / "corpus.jsonl"
     index_path = tmp_path / "index.sqlite3"
+
     write_corpus(corpus_path, documents)
     build_evidence_index(corpus_path, index_path, batch_size=2)
+
     return documents, index_path
 
 
@@ -118,6 +124,7 @@ def test_indexed_search_has_deterministic_tie_breaking(tmp_path):
         make_document("E2", "Gene process", "cellular process"),
         make_document("E1", "Gene process", "cellular process"),
     )
+
     write_corpus(corpus_path, documents)
     build_evidence_index(corpus_path, index_path)
 
@@ -126,21 +133,56 @@ def test_indexed_search_has_deterministic_tie_breaking(tmp_path):
     assert [hit.document.evidence_id for hit in report.hits] == ["E1", "E2"]
 
 
-def test_index_retains_duplicate_evidence_ids(tmp_path):
+def test_index_skips_identical_duplicate_evidence_ids(tmp_path):
     corpus_path = tmp_path / "corpus.jsonl"
     index_path = tmp_path / "index.sqlite3"
-    documents = (
-        make_document("DUP", "Gene process", "cellular process"),
-        make_document("DUP", "Gene process", "different source wording"),
+    document = make_document(
+        "DUP",
+        "Gene process",
+        "cellular process",
     )
-    write_corpus(corpus_path, documents)
+
+    write_corpus(corpus_path, (document, document))
 
     result = build_evidence_index(corpus_path, index_path)
     report = EvidenceSearchIndex(index_path).search("gene process")
 
-    assert result["document_count"] == 2
+    assert result["document_count"] == 1
+    assert result["corpus_record_count"] == 2
     assert result["duplicate_evidence_id_count"] == 1
-    assert len(report.hits) == 2
+    assert result["duplicate_records_skipped"] == 1
+    assert result["conflicting_evidence_id_count"] == 0
+    assert len(report.hits) == 1
+    assert report.hits[0].document.evidence_id == "DUP"
+
+
+def test_conflicting_duplicate_ids_fail_without_replacing_index(tmp_path):
+    corpus_path = tmp_path / "corpus.jsonl"
+    index_path = tmp_path / "index.sqlite3"
+
+    original = make_document(
+        "E1",
+        "Original gene function",
+        "original evidence",
+    )
+    write_corpus(corpus_path, (original,))
+    build_evidence_index(corpus_path, index_path)
+
+    before = EvidenceSearchIndex(index_path).search("original evidence").hits[0].document.text
+
+    conflicting_documents = (
+        make_document("DUP", "Gene process", "first payload"),
+        make_document("DUP", "Gene process", "different payload"),
+    )
+    write_corpus(corpus_path, conflicting_documents)
+
+    with pytest.raises(ValueError, match="Conflicting payloads"):
+        build_evidence_index(corpus_path, index_path)
+
+    after = EvidenceSearchIndex(index_path).search("original evidence").hits[0].document.text
+
+    assert after == before
+    assert not index_path.with_name(index_path.name + ".building").exists()
 
 
 @pytest.mark.parametrize("query", ["", "   ", "the and of"])
@@ -171,8 +213,12 @@ def test_failed_rebuild_does_not_replace_existing_index(tmp_path):
     corpus_path = tmp_path / "corpus.jsonl"
     index_path = tmp_path / "index.sqlite3"
 
-    write_corpus(corpus_path, (make_document("E1", "Gene process", "cellular process"),))
+    write_corpus(
+        corpus_path,
+        (make_document("E1", "Gene process", "cellular process"),),
+    )
     build_evidence_index(corpus_path, index_path)
+
     before = EvidenceSearchIndex(index_path).search("gene").hits[0].document.evidence_id
 
     corpus_path.write_text('{"invalid": "record"}\n', encoding="utf-8")
@@ -181,6 +227,7 @@ def test_failed_rebuild_does_not_replace_existing_index(tmp_path):
         build_evidence_index(corpus_path, index_path)
 
     after = EvidenceSearchIndex(index_path).search("gene").hits[0].document.evidence_id
+
     assert after == before
 
 

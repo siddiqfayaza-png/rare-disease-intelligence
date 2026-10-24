@@ -88,7 +88,8 @@ def build_evidence_index(
 ) -> dict[str, Any]:
     """Stream a JSONL corpus into a new index and atomically publish it.
 
-    Duplicate evidence IDs are retained as separate source records.
+    Identical normalized payloads with the same evidence ID are indexed once.
+    Conflicting payloads with the same evidence ID fail the build.
     The destination database is replaced only after a successful build.
     """
     source = Path(corpus_path)
@@ -109,6 +110,7 @@ def build_evidence_index(
     connection: sqlite3.Connection | None = None
     digest = hashlib.sha256()
     record_count = 0
+    corpus_record_count = 0
     duplicate_id_count = 0
 
     try:
@@ -117,10 +119,22 @@ def build_evidence_index(
         connection.execute("PRAGMA synchronous = NORMAL")
         _create_schema(connection)
 
+        # Track IDs and payload hashes in SQLite rather than retaining the
+        # complete corpus in Python memory.
+        connection.execute(
+            """
+            CREATE TEMP TABLE seen_evidence_ids (
+                evidence_id TEXT PRIMARY KEY,
+                payload_sha256 TEXT NOT NULL,
+                first_line_number INTEGER NOT NULL
+            )
+            """
+        )
+
         with source.open("rb") as handle:
             for line_number, raw_line in enumerate(handle, start=1):
-                # Hash the original bytes, including line endings, so the
-                # checksum represents the exact input file.
+                # Hash original bytes, including line endings, so the checksum
+                # represents the exact input file, including duplicate rows.
                 digest.update(raw_line)
 
                 if not raw_line.strip():
@@ -147,8 +161,9 @@ def build_evidence_index(
                         f"Invalid evidence record on line {line_number}: {exc}"
                     ) from exc
 
-                row_id = record_count + 1
+                corpus_record_count += 1
 
+                # Serialize all normalized document fields consistently.
                 serialized = json.dumps(
                     {
                         "evidence_id": document.evidence_id,
@@ -164,6 +179,48 @@ def build_evidence_index(
                     ensure_ascii=False,
                     separators=(",", ":"),
                 )
+
+                payload_sha256 = hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+                existing = connection.execute(
+                    """
+                    SELECT payload_sha256, first_line_number
+                    FROM seen_evidence_ids
+                    WHERE evidence_id = ?
+                    """,
+                    (document.evidence_id,),
+                ).fetchone()
+
+                if existing is not None:
+                    if existing["payload_sha256"] == payload_sha256:
+                        # Exact normalized duplicate: preserve the original
+                        # corpus, but index this evidence record only once.
+                        duplicate_id_count += 1
+                        continue
+
+                    # Never silently discard or choose between conflicting
+                    # records. Raising here prevents publication of the build.
+                    raise ValueError(
+                        "Conflicting payloads for evidence ID "
+                        f"{document.evidence_id!r} on line {line_number}; "
+                        f"first seen on line {existing['first_line_number']}"
+                    )
+
+                connection.execute(
+                    """
+                    INSERT INTO seen_evidence_ids (
+                        evidence_id, payload_sha256, first_line_number
+                    )
+                    VALUES (?, ?, ?)
+                    """,
+                    (
+                        document.evidence_id,
+                        payload_sha256,
+                        line_number,
+                    ),
+                )
+
+                row_id = record_count + 1
 
                 connection.execute(
                     """
@@ -225,15 +282,6 @@ def build_evidence_index(
                 if record_count % batch_size == 0:
                     connection.commit()
 
-        # Count duplicate IDs inside SQLite rather than retaining all IDs
-        # in Python memory. This counts repeated occurrences beyond the first.
-        duplicate_id_count = connection.execute(
-            """
-            SELECT COUNT(*) - COUNT(DISTINCT evidence_id)
-            FROM documents
-            """
-        ).fetchone()[0]
-
         corpus_checksum = digest.hexdigest()
 
         metadata = {
@@ -241,7 +289,13 @@ def build_evidence_index(
             "corpus_path": str(source.resolve()),
             "corpus_sha256": corpus_checksum,
             "document_count": str(record_count),
+            "corpus_record_count": str(corpus_record_count),
+            # Backward-compatible key: now counts skipped duplicate
+            # occurrences rather than duplicate rows retained in the index.
             "duplicate_evidence_id_count": str(duplicate_id_count),
+            "duplicate_records_skipped": str(duplicate_id_count),
+            # Successful builds cannot contain conflicting IDs.
+            "conflicting_evidence_id_count": "0",
         }
 
         connection.executemany(
@@ -253,14 +307,18 @@ def build_evidence_index(
         connection.close()
         connection = None
 
-        # Publish only a completely built database.
+        # Publish only a completely built database. If any prior step fails,
+        # the existing destination index remains untouched.
         os.replace(temporary, destination)
 
         return {
             "build_status": "success",
             "index_path": str(destination.resolve()),
             "document_count": record_count,
+            "corpus_record_count": corpus_record_count,
             "duplicate_evidence_id_count": duplicate_id_count,
+            "duplicate_records_skipped": duplicate_id_count,
+            "conflicting_evidence_id_count": 0,
             "corpus_sha256": corpus_checksum,
             "schema_version": SCHEMA_VERSION,
         }
